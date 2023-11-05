@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lobster&family=Montserrat:wght@200;400;500;700;900&family=Nunito:wght@200;300;400;600;700&family=Permanent+Marker&display=swap');
+
+html,
+body,
+#root,
+.app{
+    height: 100%;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+}
