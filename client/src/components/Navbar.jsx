@@ -7,12 +7,15 @@ import {
   SettingsOutlined,
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
+import {Typography} from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
 import profileImg from "assets/profile.jpg";
 import {
   AppBar,
+  Box,
+  Button,
   IconButton,
   InputBase,
   Toolbar,
@@ -20,9 +23,14 @@ import {
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 
-const NavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const NavBar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isOpen = Boolean(anchorEl);
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
   return (
     <AppBar
@@ -63,6 +71,44 @@ const NavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           <IconButton>
             <SettingsOutlined sx={{ fontSize: "25px" }} />
           </IconButton>
+
+          <FlexBetween>
+            <Button
+              onClick={handleClick}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                textTransform: "none",
+                gap: "1rem",
+              }}
+            >
+              <Box
+              component="img"
+              alt="profile"
+              src={profileImg}
+              height="32px"
+              width="32px"
+              borderRadius="50%"
+              sx={{ objectFit: "cover"}}
+              />
+              <Box textAlign="left">
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.85rem"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+                <Typography
+                  fontSize="0.75rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+            </Button>
+          </FlexBetween>
         </FlexBetween>
       </Toolbar>
     </AppBar>
