@@ -7,7 +7,7 @@ import {
   SettingsOutlined,
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
-import {Typography} from "@mui/material";
+import { Menu, MenuItem, Typography } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
@@ -84,13 +84,13 @@ const NavBar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               }}
             >
               <Box
-              component="img"
-              alt="profile"
-              src={profileImg}
-              height="32px"
-              width="32px"
-              borderRadius="50%"
-              sx={{ objectFit: "cover"}}
+                component="img"
+                alt="profile"
+                src={profileImg}
+                height="32px"
+                width="32px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
               />
               <Box textAlign="left">
                 <Typography
@@ -107,7 +107,18 @@ const NavBar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                   {user.occupation}
                 </Typography>
               </Box>
+              <ArrowDropDownOutlined
+                sx={{ color: theme.palette.secondary[300], fontSize: "30px" }}
+              />
             </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={isOpen}
+              onClose={handleClose}
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+              <MenuItem onClick={handleClick}>Log Out</MenuItem>
+            </Menu>
           </FlexBetween>
         </FlexBetween>
       </Toolbar>
