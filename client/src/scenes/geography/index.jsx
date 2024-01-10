@@ -22,42 +22,42 @@ const Geography = () => {
           <ResponsiveChoropleth
             data={data}
             theme={{
-                axis:{
-                    domain:{
-                        line: {
-                            stroke: theme.palette.secondary[200]
-                        }
-                    },
-                    legend : {
-                        text :{
-                            file:theme.palette.secondary[200]
-                        }
-                    },
-                    ticks: {
-                        line: {
-                            stroke: theme.palette.secomdary[200],
-                            strokeWidth: 1,
-                        },
-                        text : {
-                            fill: theme.palette.secondary[200]
-                        },
-                    },
+              axis: {
+                domain: {
+                  line: {
+                    stroke: theme.palette.secondary[200],
+                  },
                 },
-                legends:{
-                    text: {
-                        fill: theme.palette.secondary[200]
-                    },
+                legend: {
+                  text: {
+                    file: theme.palette.secondary[200],
+                  },
                 },
-                tooltip: {
-                    container: {
-                        color: theme.palette.primary.main,
-                    },
+                ticks: {
+                  line: {
+                    stroke: theme.palette.secomdary[200],
+                    strokeWidth: 1,
+                  },
+                  text: {
+                    fill: theme.palette.secondary[200],
+                  },
                 },
+              },
+              legends: {
+                text: {
+                  fill: theme.palette.secondary[200],
+                },
+              },
+              tooltip: {
+                container: {
+                  color: theme.palette.primary.main,
+                },
+              },
             }}
             features={geoData.features}
             margin={{ top: 0, right: 0, bottom: 0, left: -50 }}
             colors="nivo"
-            domain={[0, 1000000]}
+            domain={[0, 60]}
             unknownColor="#666666"
             label="properties.name"
             valueFormat=".2s"
