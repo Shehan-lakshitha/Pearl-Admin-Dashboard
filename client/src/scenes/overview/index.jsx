@@ -24,6 +24,7 @@ const Overview = () => {
             <MenuItem value="units">Units</MenuItem>
           </Select>
         </FormControl>
+        <OverviewChart view={view} />
       </Box>
     </Box>
   );
