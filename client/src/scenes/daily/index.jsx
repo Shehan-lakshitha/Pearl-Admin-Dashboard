@@ -43,10 +43,11 @@ const Daily = () => {
       }
     });
 
+
     return [[totalSalesLine], [totalUnitsLine]];
   }, [data]); //eslint-disable-line react-hooks/exhaustive-deps
 
-  return <div>Daily</div>;
+  return <div>Daily chart</div>;
 };
 
 export default Daily;
