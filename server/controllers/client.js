@@ -47,12 +47,11 @@ export const getTransactions = async (req, res) => {
     const generateSort = () => {
       const sortParsed = JSON.parse(sort);
       const sortFormatted = {
-        [sortParsed.field]: sortParsed.sort === "asc" ? 1 : -1,
+        [sortParsed.field]: (sortParsed.sort = "asc" ? 1 : -1),
       };
 
       return sortFormatted;
     };
-
     const sortFormatted = Boolean(sort) ? generateSort() : {};
 
     const transactions = await Transaction.find({
@@ -91,11 +90,11 @@ export const getGeography = async (req, res) => {
       return acc;
     }, {});
 
-    const formattedLocations = object.entries(mappedLocations).map(
+    const formattedLocations = Object.entries(mappedLocations).map(
       ([country, count]) => {
-        return {id: country, values: count}
+        return { id: country, value: count };
       }
-    )
+    );
 
     res.status(200).json(formattedLocations);
   } catch (error) {

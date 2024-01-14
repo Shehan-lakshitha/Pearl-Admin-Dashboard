@@ -47,6 +47,8 @@ const Daily = () => {
     return [formattedData];
   }, [data, startDate, endDate]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  console.log(data);
+
   return (
     <Box m="1.5rem 2.5rem">
       <Header title="DAILY SALES" subtitle="Chart of daily sales" />
