@@ -44,7 +44,7 @@ export const api = createApi({
     getAdmin: build.query({
       query: () => "management/admins",
       providesTags: ["Admins"],
-    })
+    }),
   }),
 });
 
@@ -55,4 +55,5 @@ export const {
   useGetTransactionsQuery,
   useGetGeographyQuery,
   useGetSalesQuery,
+  useGetAdminQuery,
 } = api;
