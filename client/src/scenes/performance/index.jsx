@@ -1,16 +1,15 @@
 import React from "react";
 import { Box, useTheme } from "@mui/material";
 import { useGetUserPerformanceQuery } from "state/api";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
 
 const Performance = () => {
+  const theme = useTheme();
   const userId = useSelector((state) => state.global.userId);
   const { data, isLoading } = useGetUserPerformanceQuery(userId);
-  const theme = useTheme();
-  //   console.log("data", data);
 
   const columns = [
     {
@@ -21,7 +20,7 @@ const Performance = () => {
     {
       field: "userId",
       headerName: "User ID",
-      flex: 0.5,
+      flex: 1,
     },
     {
       field: "createdAt",
@@ -42,11 +41,12 @@ const Performance = () => {
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
     },
   ];
+
   return (
     <Box m="1.5rem 2.5rem">
       <Header
-        title="Perfomance"
-        subtitle="Track your affiliate sales performance"
+        title="PERFORMANCE"
+        subtitle="Track your Affiliate Sales Performance Here"
       />
       <Box
         mt="40px"
@@ -58,7 +58,7 @@ const Performance = () => {
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
           },
-          "& .MuiDataGrid-columnHeader": {
+          "& .MuiDataGrid-columnHeaders": {
             backgroundColor: theme.palette.background.alt,
             color: theme.palette.secondary[100],
             borderBottom: "none",
