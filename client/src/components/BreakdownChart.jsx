@@ -2,7 +2,6 @@ import React from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { Box, Typography, useTheme } from "@mui/material";
 import { useGetSalesQuery } from "state/api";
-import { Category } from "@mui/icons-material";
 
 const BreakdownChart = ({ isDashboard = false }) => {
   const { data, isLoading } = useGetSalesQuery();
@@ -13,18 +12,18 @@ const BreakdownChart = ({ isDashboard = false }) => {
 
   const colors = [
     theme.palette.secondary[500],
+    theme.palette.secondary[300],
+    theme.palette.secondary[300],
     theme.palette.secondary[500],
-    theme.palette.secondary[300],
-    theme.palette.secondary[300],
   ];
-  const formattedData = object
-    .entries(data.salesByCategory)
-    .map(([category, sales], i) => ({
+  const formattedData = Object.entries(data.salesByCategory).map(
+    ([category, sales], i) => ({
       id: category,
       label: category,
       value: sales,
       color: colors[i],
-    }));
+    })
+  );
 
   return (
     <Box
@@ -111,7 +110,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
               {
                 on: "hover",
                 style: {
-                  itemTextColor: theme.palette.secondary[500],
+                  itemTextColor: theme.palette.primary[500],
                 },
               },
             ],
@@ -132,7 +131,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
         }}
       >
         <Typography variant="h6">
-          {isDashboard && "Total:"} $ {data.yearlySalesTotal}
+          {!isDashboard && "Total:"} ${data.yearlySalesTotal}
         </Typography>
       </Box>
     </Box>

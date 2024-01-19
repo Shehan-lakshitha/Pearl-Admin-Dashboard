@@ -1,5 +1,5 @@
-const { default: styled } = require("@emotion/styled");
 const { Box } = require("@mui/material");
+const { styled } = require("@mui/system");
 
 const FlexBetween = styled(Box)({
   display: "flex",
